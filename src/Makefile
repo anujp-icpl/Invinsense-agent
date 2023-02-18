@@ -671,14 +671,7 @@ BUILD_SERVER+=wazuh-integratord
 BUILD_SERVER+=wazuh-modulesd
 BUILD_SERVER+=wazuh-db
 
-# BUILD_AGENT+=wazuh-agentd
 BUILD_AGENT+=agent-auth
-# BUILD_AGENT+=wazuh-logcollector
-# BUILD_AGENT+=wazuh-syscheckd
-# BUILD_AGENT+=wazuh-execd
-# BUILD_AGENT+=manage_agents
-# BUILD_AGENT+=active-responses
-# BUILD_AGENT+=wazuh-modulesd
 
 BUILD_CMAKE_PROJECTS+=build_sysinfo
 BUILD_CMAKE_PROJECTS+=build_shared_modules

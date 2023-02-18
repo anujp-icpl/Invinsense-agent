@@ -805,10 +805,6 @@ InstallCommon()
         fi
     fi
 
-  ${INSTALL} -d -m 0750 -o ${WAZUH_USER} -g ${WAZUH_GROUP} ${INSTALLDIR}/queue/syscollector
-  ${INSTALL} -d -m 0750 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/ruleset
-  ${INSTALL} -d -m 0750 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/ruleset/sca
-
     ${INSTALL} -d -m 0770 -o ${WAZUH_USER} -g ${WAZUH_GROUP} ${INSTALLDIR}/etc
 
     if [ -f /etc/localtime ]
@@ -829,7 +825,6 @@ InstallCommon()
     fi
 
     ${INSTALL} -m 0640 -o root -g ${WAZUH_GROUP} -b ../etc/internal_options.conf ${INSTALLDIR}/etc/
-    ${INSTALL} -m 0640 -o root -g ${WAZUH_GROUP} wazuh_modules/syscollector/norm_config.json ${INSTALLDIR}/queue/syscollector
 
     if [ ! -f ${INSTALLDIR}/etc/local_internal_options.conf ]; then
         ${INSTALL} -m 0640 -o root -g ${WAZUH_GROUP} ../etc/local_internal_options.conf ${INSTALLDIR}/etc/local_internal_options.conf
@@ -850,9 +845,6 @@ InstallCommon()
             ${INSTALL} -m 0660 -o root -g ${WAZUH_GROUP} ${OSSEC_CONF_SRC} ${INSTALLDIR}/etc/ossec.conf
         fi
     fi
-
-  ${INSTALL} -d -m 0770 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/etc/shared
-  ${INSTALL} -d -m 0770 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/.ssh
 
   ${INSTALL} -d -m 0750 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/var
     ${INSTALL} -d -m 0770 -o root -g ${WAZUH_GROUP} ${INSTALLDIR}/var/run
@@ -1057,7 +1049,6 @@ InstallAgent()
 
     ${INSTALL} -m 0750 -o root -g 0 agent-auth ${INSTALLDIR}/bin
 
-    ${INSTALL} -m 0660 -o root -g ${WAZUH_GROUP} ../ruleset/rootcheck/db/*.txt ${INSTALLDIR}/etc/shared/
     ${INSTALL} -m 0640 -o root -g ${WAZUH_GROUP} ../etc/wpk_root.pem ${INSTALLDIR}/etc/
 
 }
